@@ -1,0 +1,13 @@
+#part 1 this is a policy used by sentinel - this allows only AWS providers
+#
+import "tfplan/v2" as tfplan
+
+# Filter all resource changes to find providers
+allowed_providers = ["aws"]
+
+# Rule to validate the provider
+main = rule {
+    all tfplan.resource_changes as _, rc {
+        rc.provider_name in allowed_providers
+    }
+}
