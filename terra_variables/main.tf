@@ -28,10 +28,10 @@ resource "aws_s3_bucket_versioning" "demo" {
     }
 }
 output "bucket_name" {
-    description: "The name of the created S3 bucket"
+    description = "The name of the created S3 bucket"
     value = aws_s3_bucket.demo.bucket 
 }
 output "bucket_arm" {
-    description "the ARN of the created bucket"
-    value = aws_s3_bucket.demo.arm
+    description = "the ARN of the created bucket"
+    value = aws_s3_bucket.demo.arn
 }
